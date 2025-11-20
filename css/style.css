@@ -24,8 +24,6 @@ body{
   min-height:100vh;
 }
 
-/* =================== FONT IMPORT for Premium Logo =================== */
-/* Using 'Sacramento' or 'Parisienne' for a more elegant script look. */
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap'); 
 
 .container{
@@ -46,24 +44,20 @@ header{
 }
 
 /* ======================================================
-   PREMIUM LOGO & RICH 3D TAB STYLES
+   PREMIUM LOGO & RICH 3D TAB STYLES (FIXED WRAPPING)
    ====================================================== */
 
 /* ✒️ PREMIUM LOGO STYLE */
 .logo {
-  /* Font Family Change for Elegance */
   font-family: 'Sacramento', cursive !important; 
-  font-size: 50px !important; /* Made the logo much bigger */
-  color: var(--card) !important; /* White color */
-  
-  /* Rich, Layered Shadow for Depth and Shine */
+  font-size: 50px !important; 
+  color: var(--card) !important; 
   text-shadow: 
-    0 0 10px rgba(255, 255, 255, 0.5), /* Soft glow */
-    3px 3px 5px rgba(0, 0, 0, 0.5),    /* Main black shadow */
-    -1px -1px 0px rgba(255, 255, 255, 0.8) !important; /* White highlight (designer effect) */
-  
+    0 0 10px rgba(255, 255, 255, 0.5), 
+    3px 3px 5px rgba(0, 0, 0, 0.5),    
+    -1px -1px 0px rgba(255, 255, 255, 0.8) !important; 
   letter-spacing: 2px;
-  margin-bottom: 10px !important; /* Increased space below logo */
+  margin-bottom: 10px !important; 
   text-align: center !important;
 }
 
@@ -76,18 +70,21 @@ header{
   gap: 14px !important;
 }
 
-/* Nav centered full width */
+/* Nav centered full width - **FIXED OVERLAP HERE** */
 .nav {
   width: 100%;
   justify-content: center !important;
   gap: 12px !important;
-  flex-wrap: nowrap;
+  /* CHANGED: Allow buttons to wrap to the next line if space runs out */
+  flex-wrap: wrap !important; 
+  /* Added vertical space between wrapped lines */
+  row-gap: 12px; 
 }
 
 /* 🧱 RICH 3D TAB STYLE (Concave/Neumorphism Inspired) */
 .tab {
   flex-shrink: 0;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; /* Smoother transition */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; 
   border-radius: 18px !important;
   padding: 10px 20px;
   font-weight: 600;
@@ -97,33 +94,31 @@ header{
   
   /* Default 3D Effect (Raised) */
   box-shadow: 
-    6px 6px 10px var(--tab-shadow-dark),  /* Bottom-right darker shadow */
-    -6px -6px 10px var(--tab-shadow-light) !important; /* Top-left lighter shadow */
+    6px 6px 10px var(--tab-shadow-dark),  
+    -6px -6px 10px var(--tab-shadow-light) !important; 
 }
 
 /* 💎 Premium Hover/Active Effect (Simulates a button being pressed down - Concave Look) */
 .tab:hover, .tab.active {
-  transform: scale(0.98); /* Slightly shrink on hover/active */
+  transform: scale(0.98); 
   cursor: pointer;
   
   /* Inset Shadow: Makes it look 'pressed' or concave */
   box-shadow: 
-    inset 4px 4px 8px var(--tab-shadow-dark),  /* Inner dark shadow */
-    inset -4px -4px 8px var(--tab-shadow-light) !important; /* Inner light highlight */
+    inset 4px 4px 8px var(--tab-shadow-dark),  
+    inset -4px -4px 8px var(--tab-shadow-light) !important; 
   
-  /* Active tab text color change for premium highlight */
   color: #7a37ff !important; 
 }
 
-/* Specific Active Tab Look (If needed to override hover and keep accent color) */
+/* Specific Active Tab Look (Home in your screenshot) */
 .tab.active {
-  color: #111 !important; /* Darker text for active tab */
-  background: var(--accent) !important; /* Accent background for primary tab */
-  /* Remove the inset shadow slightly to make the active button pop more */
+  color: #111 !important; 
+  background: var(--accent) !important; 
   box-shadow: 
-    0 0 15px rgba(255, 215, 0, 0.5), /* Outer Glow */
-    inset 1px 1px 2px rgba(0, 0, 0, 0.1) !important; /* Minimal inset shadow */
-  transform: none; /* No scaling on active tab */
+    0 0 15px rgba(255, 215, 0, 0.5), 
+    inset 1px 1px 2px rgba(0, 0, 0, 0.1) !important; 
+  transform: none; 
 }
 
 /* WhatsApp Button */
