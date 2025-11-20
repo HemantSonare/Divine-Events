@@ -70,95 +70,33 @@ body{
 @media (max-width:720px){ .hero h2{font-size:20px} .hero-right img{max-width:320px} .site-footer .container{flex-direction:column; gap:8px}}
 
 
-/* Header fixes */
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap; /* allow wrapping on small screens */
-}
-
-.nav {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  font-size: 14px;
-}
-
-.nav a.active {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-}
-
-/* Hero image responsive */
-.hero {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap; /* stack on mobile */
-}
-.hero-left, .hero-right {
-  flex: 1 1 300px;
-}
-
-/* Footer alignment on mobile */
-.site-footer .container {
-  flex-direction: column;
-  gap: 8px;
-}
-
-/* Header Container */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: linear-gradient(90deg, #ff7eb9, #ff758c);
-  padding: 15px 30px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* Header Inner Flex */
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-/* Logo */
-.logo {
-  font-family: 'Pacifico', cursive;
-  font-size: 28px;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-}
-
-/* Nav Container - Side by Side */
 .nav {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px; /* side by side spacing */
+  flex-wrap: nowrap; /* NEVER wrap to next line */
+  overflow-x: auto; /* horizontal scroll if too many tabs */
+  padding-bottom: 5px;
 }
 
 /* 3D Tab Style */
 .tab {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 8px 16px; /* smaller padding for tight space */
+  min-width: 70px;   /* ensures readability */
   background: #fff;
   border-radius: 12px;
   color: #ff758c;
   font-weight: 600;
+  text-align: center;
   text-decoration: none;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
+  flex-shrink: 1; /* allow shrinking if container is small */
 }
 .tab:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 .tab.active {
   background: #ffd700;
@@ -170,27 +108,23 @@ header {
 .wh-btn {
   background: #25D366;
   color: #fff;
-  padding: 8px 15px;
+  padding: 6px 12px;
   border-radius: 25px;
   font-weight: bold;
   transition: all 0.3s ease;
-}
-.wh-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  flex-shrink: 0; /* never shrink whatsapp button */
 }
 
-/* Responsive */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .header-inner {
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
   }
   .nav {
-    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     width: 100%;
-    align-items: center;
     gap: 8px;
   }
 }
