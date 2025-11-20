@@ -68,3 +68,42 @@ body{
 .site-footer .container{display:flex; justify-content:space-between; align-items:center; gap:12px}
 
 @media (max-width:720px){ .hero h2{font-size:20px} .hero-right img{max-width:320px} .site-footer .container{flex-direction:column; gap:8px}}
+
+
+/* Header fixes */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap; /* allow wrapping on small screens */
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.nav a.active {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+/* Hero image responsive */
+.hero {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap; /* stack on mobile */
+}
+.hero-left, .hero-right {
+  flex: 1 1 300px;
+}
+
+/* Footer alignment on mobile */
+.site-footer .container {
+  flex-direction: column;
+  gap: 8px;
+}
