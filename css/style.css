@@ -6,6 +6,8 @@
   --card:#fff;
   --accent:#ffd700;
   --max-width:1120px;
+  /* Naya root variable for 3D tab effect */
+  --tab-shadow-inner: rgba(0, 0, 0, 0.15) 0px 3px 6px inset, rgba(255, 255, 255, 0.4) 0px -1px 2px inset;
 }
 
 *{box-sizing:border-box;}
@@ -18,6 +20,10 @@ body{
   -moz-osx-font-smoothing:grayscale;
   min-height:100vh;
 }
+
+/* =================== FONT IMPORT (Agar aap HTML mein nahi kar sakte) =================== */
+/* Note: Agar yeh font load nahi hua, toh backup font use hoga. HTML <head> mein add karna better hai. */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 .container{
   width:92%;
@@ -37,23 +43,29 @@ header{
 }
 
 /* ======================================================
-   FINAL HEADER FIX + PREMIUM HOVER EFFECT (MERGE READY)
+   DESIGNER LOGO & 3D TAB FIXES
    ====================================================== */
 
-/* **FIXED**: Make logo above, tabs below for all sizes */
+/* ✒️ DESIGNER LOGO STYLE */
+.logo {
+  /* Font Family Change */
+  font-family: 'Great Vibes', cursive, sans-serif !important; 
+  font-size: 38px !important; /* Logo size badhaya */
+  color: var(--card) !important; /* White color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 
+               1px 1px 0px rgba(255, 255, 255, 0.5) !important; /* Designer shadow */
+  letter-spacing: 1px;
+  margin-bottom: 6px !important;
+  text-align: center !important;
+}
+
+/* Header Structure */
 .header-inner {
-  /* Logo aur Nav ko vertically stack karein */
   display: flex !important; 
   flex-direction: column !important; 
   align-items: center !important;
   justify-content: center !important;
   gap: 14px !important;
-}
-
-/* Logo spacing */
-.logo {
-  margin-bottom: 6px !important;
-  text-align: center !important;
 }
 
 /* Nav centered full width */
@@ -64,24 +76,38 @@ header{
   flex-wrap: nowrap;
 }
 
-/* Tabs main style enhancements */
+/* 🧱 3D TAB STYLE */
 .tab {
   flex-shrink: 0;
   transition: all 0.25s ease !important;
   border-radius: 14px !important;
+  padding: 8px 16px; /* Padding adjust kiya */
+  font-weight: 700;
+  color: #555 !important;
+  background: var(--card) !important;
+  
+  /* 3D Effect: Inset shadow for depth */
+  box-shadow: var(--tab-shadow-inner) !important;
+  
+  /* Gradient Overlay for better depth/shine (Optional, you can remove this) */
+  position: relative;
+  overflow: hidden;
 }
 
-/* Premium hover effect */
-.tab:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.25) !important;
-}
-
-/* Active tab stays bold even after layout fix */
+/* 3D Active Tab Style */
 .tab.active {
   background: var(--accent) !important;
-  color: #fff !important;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.32) !important;
+  color: #111 !important;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5), /* Outer Glow */
+              rgba(0, 0, 0, 0.2) 0px 2px 4px inset !important; /* Inner Shadow */
+  transform: translateY(0px) scale(1.0); /* Remove scale on active */
+}
+
+/* 3D Hover Effect */
+.tab:hover {
+  transform: translateY(-2px) scale(1.02); /* Thoda sa lift */
+  /* Remove inset shadow on hover to make it feel pressed, and add outer glow */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2), var(--tab-shadow-inner); 
 }
 
 /* WhatsApp Button */
@@ -156,5 +182,3 @@ header{
   .hero-right img{max-width:320px;}
   .site-footer .container{flex-direction:column;gap:8px;}
 }
-
-/* Old 768px media query removed as it contradicted the column layout you wanted */
