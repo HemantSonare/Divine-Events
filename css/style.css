@@ -108,7 +108,6 @@ body{
   gap: 8px;
 }
 
-
 /* Header Container */
 header {
   position: sticky;
@@ -119,7 +118,7 @@ header {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Inner Header Flex */
+/* Header Inner Flex */
 .header-inner {
   display: flex;
   align-items: center;
@@ -138,7 +137,7 @@ header {
   text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
-/* Nav Container */
+/* Nav Container - Side by Side */
 .nav {
   display: flex;
   align-items: center;
@@ -147,7 +146,6 @@ header {
 
 /* 3D Tab Style */
 .tab {
-  position: relative;
   display: inline-block;
   padding: 10px 20px;
   background: #fff;
@@ -182,7 +180,7 @@ header {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Responsive Mobile */
+/* Responsive */
 @media (max-width: 768px) {
   .header-inner {
     flex-direction: column;
