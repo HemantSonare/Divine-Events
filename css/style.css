@@ -6,8 +6,11 @@
   --card:#fff;
   --accent:#ffd700;
   --max-width:1120px;
-  /* Naya root variable for 3D tab effect */
-  --tab-shadow-inner: rgba(0, 0, 0, 0.15) 0px 3px 6px inset, rgba(255, 255, 255, 0.4) 0px -1px 2px inset;
+  
+  /* NEW: Variables for 3D/Concave Tab Effects */
+  --tab-bg: rgba(255, 255, 255, 0.95);
+  --tab-shadow-light: rgba(255, 255, 255, 0.9);
+  --tab-shadow-dark: rgba(0, 0, 0, 0.2);
 }
 
 *{box-sizing:border-box;}
@@ -21,9 +24,9 @@ body{
   min-height:100vh;
 }
 
-/* =================== FONT IMPORT (Agar aap HTML mein nahi kar sakte) =================== */
-/* Note: Agar yeh font load nahi hua, toh backup font use hoga. HTML <head> mein add karna better hai. */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+/* =================== FONT IMPORT for Premium Logo =================== */
+/* Using 'Sacramento' or 'Parisienne' for a more elegant script look. */
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap'); 
 
 .container{
   width:92%;
@@ -43,23 +46,28 @@ header{
 }
 
 /* ======================================================
-   DESIGNER LOGO & 3D TAB FIXES
+   PREMIUM LOGO & RICH 3D TAB STYLES
    ====================================================== */
 
-/* ✒️ DESIGNER LOGO STYLE */
+/* ✒️ PREMIUM LOGO STYLE */
 .logo {
-  /* Font Family Change */
-  font-family: 'Great Vibes', cursive, sans-serif !important; 
-  font-size: 38px !important; /* Logo size badhaya */
+  /* Font Family Change for Elegance */
+  font-family: 'Sacramento', cursive !important; 
+  font-size: 50px !important; /* Made the logo much bigger */
   color: var(--card) !important; /* White color */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 
-               1px 1px 0px rgba(255, 255, 255, 0.5) !important; /* Designer shadow */
-  letter-spacing: 1px;
-  margin-bottom: 6px !important;
+  
+  /* Rich, Layered Shadow for Depth and Shine */
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.5), /* Soft glow */
+    3px 3px 5px rgba(0, 0, 0, 0.5),    /* Main black shadow */
+    -1px -1px 0px rgba(255, 255, 255, 0.8) !important; /* White highlight (designer effect) */
+  
+  letter-spacing: 2px;
+  margin-bottom: 10px !important; /* Increased space below logo */
   text-align: center !important;
 }
 
-/* Header Structure */
+/* Header Structure (Remains Column) */
 .header-inner {
   display: flex !important; 
   flex-direction: column !important; 
@@ -76,38 +84,46 @@ header{
   flex-wrap: nowrap;
 }
 
-/* 🧱 3D TAB STYLE */
+/* 🧱 RICH 3D TAB STYLE (Concave/Neumorphism Inspired) */
 .tab {
   flex-shrink: 0;
-  transition: all 0.25s ease !important;
-  border-radius: 14px !important;
-  padding: 8px 16px; /* Padding adjust kiya */
-  font-weight: 700;
-  color: #555 !important;
-  background: var(--card) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; /* Smoother transition */
+  border-radius: 18px !important;
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #333 !important;
+  background: var(--tab-bg) !important;
+  border: none;
   
-  /* 3D Effect: Inset shadow for depth */
-  box-shadow: var(--tab-shadow-inner) !important;
-  
-  /* Gradient Overlay for better depth/shine (Optional, you can remove this) */
-  position: relative;
-  overflow: hidden;
+  /* Default 3D Effect (Raised) */
+  box-shadow: 
+    6px 6px 10px var(--tab-shadow-dark),  /* Bottom-right darker shadow */
+    -6px -6px 10px var(--tab-shadow-light) !important; /* Top-left lighter shadow */
 }
 
-/* 3D Active Tab Style */
+/* 💎 Premium Hover/Active Effect (Simulates a button being pressed down - Concave Look) */
+.tab:hover, .tab.active {
+  transform: scale(0.98); /* Slightly shrink on hover/active */
+  cursor: pointer;
+  
+  /* Inset Shadow: Makes it look 'pressed' or concave */
+  box-shadow: 
+    inset 4px 4px 8px var(--tab-shadow-dark),  /* Inner dark shadow */
+    inset -4px -4px 8px var(--tab-shadow-light) !important; /* Inner light highlight */
+  
+  /* Active tab text color change for premium highlight */
+  color: #7a37ff !important; 
+}
+
+/* Specific Active Tab Look (If needed to override hover and keep accent color) */
 .tab.active {
-  background: var(--accent) !important;
-  color: #111 !important;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5), /* Outer Glow */
-              rgba(0, 0, 0, 0.2) 0px 2px 4px inset !important; /* Inner Shadow */
-  transform: translateY(0px) scale(1.0); /* Remove scale on active */
-}
-
-/* 3D Hover Effect */
-.tab:hover {
-  transform: translateY(-2px) scale(1.02); /* Thoda sa lift */
-  /* Remove inset shadow on hover to make it feel pressed, and add outer glow */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2), var(--tab-shadow-inner); 
+  color: #111 !important; /* Darker text for active tab */
+  background: var(--accent) !important; /* Accent background for primary tab */
+  /* Remove the inset shadow slightly to make the active button pop more */
+  box-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.5), /* Outer Glow */
+    inset 1px 1px 2px rgba(0, 0, 0, 0.1) !important; /* Minimal inset shadow */
+  transform: none; /* No scaling on active tab */
 }
 
 /* WhatsApp Button */
