@@ -40,9 +40,11 @@ header{
    FINAL HEADER FIX + PREMIUM HOVER EFFECT (MERGE READY)
    ====================================================== */
 
-/* Make logo above, tabs below */
+/* **FIXED**: Make logo above, tabs below for all sizes */
 .header-inner {
-  flex-direction: column !important;
+  /* Logo aur Nav ko vertically stack karein */
+  display: flex !important; 
+  flex-direction: column !important; 
   align-items: center !important;
   justify-content: center !important;
   gap: 14px !important;
@@ -155,15 +157,4 @@ header{
   .site-footer .container{flex-direction:column;gap:8px;}
 }
 
-@media (max-width:768px){
-  .header-inner{
-    flex-direction:row; /* always horizontal */
-    align-items:center;
-    width:100%;
-    overflow-x:auto;
-    gap:8px;
-  }
-  .nav{
-    gap:8px;
-  }
-}
+/* Old 768px media query removed as it contradicted the column layout you wanted */
