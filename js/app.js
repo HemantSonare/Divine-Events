@@ -33,6 +33,17 @@ function openWA(message){
   window.open(url, '_blank');
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const path = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".tab").forEach(tab => {
+    if(tab.getAttribute("href") === path){
+      tab.classList.add("active");
+    } else {
+      tab.classList.remove("active");
+    }
+  });
+});
+
 /* Populate home/services/gallery when DOM present */
 document.addEventListener('DOMContentLoaded', ()=>{
   const sgrid = document.getElementById('servicesGrid');
