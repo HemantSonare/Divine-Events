@@ -44,7 +44,7 @@ header{
 }
 
 /* ======================================================
-   PREMIUM LOGO & RICH 3D TAB STYLES (FIXED OVERLAP)
+   PREMIUM LOGO & RICH 3D TAB STYLES (FINAL OVERLAP FIX)
    ====================================================== */
 
 /* ✒️ PREMIUM LOGO STYLE */
@@ -74,20 +74,25 @@ header{
 .nav {
   width: 100%;
   justify-content: center !important;
-  gap: 8px !important; /* Gap reduced from 12px to 8px */
-  flex-wrap: nowrap !important; /* Forced to stay on one line */
-  overflow-x: auto; /* Adds scrolling if absolutely necessary, but avoids overlap */
+  gap: 6px !important; /* Gap further reduced */
+  flex-wrap: nowrap !important; 
+  overflow-x: auto; 
   row-gap: 0; 
 }
 
-/* 🧱 RICH 3D TAB STYLE - **REDUCED SIZE TO PREVENT OVERLAP** */
+/* 🧱 RICH 3D TAB STYLE - **AGGRESSIVE SIZE REDUCTION & FLEX-BASIS** */
 .tab {
+  /* AGGRESSIVE FIX: Force each button to take 25% of the navigation space */
+  flex: 1 1 25%; 
+  max-width: 25%; 
+  text-align: center; /* Center the text within the button */
+  
   flex-shrink: 0;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; 
   border-radius: 18px !important;
-  padding: 8px 12px; /* Horizontal padding significantly reduced */
+  padding: 6px 4px; /* Padding drastically reduced */
   font-weight: 600;
-  font-size: 14px; /* Font size reduced slightly */
+  font-size: 13px; /* Font size further reduced */
   color: #333 !important;
   background: var(--tab-bg) !important;
   border: none;
