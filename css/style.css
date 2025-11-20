@@ -36,57 +36,50 @@ header{
   box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-.header-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  flex-wrap:nowrap;
+/* ======================================================
+   FINAL HEADER FIX + PREMIUM HOVER EFFECT (MERGE READY)
+   ====================================================== */
+
+/* Make logo above, tabs below */
+.header-inner {
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
 }
 
-.logo{
-  font-family:'Pacifico', cursive;
-  font-size:28px;
-  color:#fff;
-  font-weight:bold;
-  text-shadow:1px 1px 5px rgba(0,0,0,0.3);
-  flex-shrink:0;
+/* Logo spacing */
+.logo {
+  margin-bottom: 6px !important;
+  text-align: center !important;
 }
 
-/* Nav — Horizontal Tabs */
-.nav{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-wrap:nowrap;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
+/* Nav centered full width */
+.nav {
+  width: 100%;
+  justify-content: center !important;
+  gap: 12px !important;
+  flex-wrap: nowrap;
 }
 
-.tab{
-  display:inline-block;
-  padding:8px 16px;
-  min-width:60px;
-  background:var(--card);
-  border-radius:12px;
-  color:#ff758c;
-  font-weight:600;
-  text-align:center;
-  text-decoration:none;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  transition:all 0.3s ease;
-  flex-shrink:1;
+/* Tabs main style enhancements */
+.tab {
+  flex-shrink: 0;
+  transition: all 0.25s ease !important;
+  border-radius: 14px !important;
 }
 
-.tab:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+/* Premium hover effect */
+.tab:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25) !important;
 }
 
-.tab.active{
-  background:var(--accent);
-  color:#fff;
-  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+/* Active tab stays bold even after layout fix */
+.tab.active {
+  background: var(--accent) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.32) !important;
 }
 
 /* WhatsApp Button */
