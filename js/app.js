@@ -1,5 +1,5 @@
 // app.js — Shared JS for Divine Events multi-page starter
-const PHONE = "+919876543210"; // <- change this to your WhatsApp number
+const PHONE = "+917067869093"; // <- change this to your WhatsApp number
 
 // Common data
 const SERVICES = [
