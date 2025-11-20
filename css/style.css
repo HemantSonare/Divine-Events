@@ -44,7 +44,7 @@ header{
 }
 
 /* ======================================================
-   PREMIUM LOGO & RICH 3D TAB STYLES (FIXED WRAPPING)
+   PREMIUM LOGO & RICH 3D TAB STYLES (FIXED OVERLAP)
    ====================================================== */
 
 /* ✒️ PREMIUM LOGO STYLE */
@@ -70,24 +70,24 @@ header{
   gap: 14px !important;
 }
 
-/* Nav centered full width - **FIXED OVERLAP HERE** */
+/* Nav centered full width - **FORCED SINGLE LINE** */
 .nav {
   width: 100%;
   justify-content: center !important;
-  gap: 12px !important;
-  /* CHANGED: Allow buttons to wrap to the next line if space runs out */
-  flex-wrap: wrap !important; 
-  /* Added vertical space between wrapped lines */
-  row-gap: 12px; 
+  gap: 8px !important; /* Gap reduced from 12px to 8px */
+  flex-wrap: nowrap !important; /* Forced to stay on one line */
+  overflow-x: auto; /* Adds scrolling if absolutely necessary, but avoids overlap */
+  row-gap: 0; 
 }
 
-/* 🧱 RICH 3D TAB STYLE (Concave/Neumorphism Inspired) */
+/* 🧱 RICH 3D TAB STYLE - **REDUCED SIZE TO PREVENT OVERLAP** */
 .tab {
   flex-shrink: 0;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; 
   border-radius: 18px !important;
-  padding: 10px 20px;
+  padding: 8px 12px; /* Horizontal padding significantly reduced */
   font-weight: 600;
+  font-size: 14px; /* Font size reduced slightly */
   color: #333 !important;
   background: var(--tab-bg) !important;
   border: none;
@@ -98,7 +98,7 @@ header{
     -6px -6px 10px var(--tab-shadow-light) !important; 
 }
 
-/* 💎 Premium Hover/Active Effect (Simulates a button being pressed down - Concave Look) */
+/* 💎 Premium Hover/Active Effect */
 .tab:hover, .tab.active {
   transform: scale(0.98); 
   cursor: pointer;
@@ -111,7 +111,7 @@ header{
   color: #7a37ff !important; 
 }
 
-/* Specific Active Tab Look (Home in your screenshot) */
+/* Specific Active Tab Look */
 .tab.active {
   color: #111 !important; 
   background: var(--accent) !important; 
